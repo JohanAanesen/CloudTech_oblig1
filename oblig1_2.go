@@ -8,7 +8,6 @@ A-Because i first finished off the assignment using the package go-github (githu
   but heroku went apeshit when trying to deploy it (after 4 hours of trying to deploy it I gave up).
   And that is why I redid the assignment without using go-github (hooray it deploys!)
 
-
  */
 
 package main
@@ -51,7 +50,7 @@ func getCommitter(r io.Reader)(string, int, error){
 
 	//err handler
 	if err != nil{
-		fmt.Printf("rip committer \n", err)
+		fmt.Printf("Something went wrong with the JSON decoder\n", err)
 		os.Exit(1)
 	}
 
@@ -80,7 +79,7 @@ func getOwner(r io.Reader)(string, error){
 
 	//err handler
 	if err != nil{
-		fmt.Printf("rip owner\n", err)
+		fmt.Printf("Something went wrong with the JSON decoder\n", err)
 		os.Exit(1)
 	}
 
@@ -101,7 +100,7 @@ func getLang(r io.Reader)([]string, error){
 
 	//err handler
 	if err != nil{
-		fmt.Printf("rip lang\n", err)
+		fmt.Printf("Something went wrong with the JSON decoder\n", err)
 		os.Exit(1)
 	}
 
@@ -136,7 +135,7 @@ func HandleOblig(w http.ResponseWriter, r *http.Request){
 
 	//error handler, not sure if it is needed here(?) - I'm new to this language
 	if err != nil{
-		fmt.Printf("rip payload\n", err)
+		fmt.Printf("Something went wrong\n", err)
 		return
 	}
 
@@ -144,7 +143,7 @@ func HandleOblig(w http.ResponseWriter, r *http.Request){
 	var payload Payload
 
 	//populates the payload object
-	payload.Project = "github.com/" + URL[4] + "/" + URL[5]
+	payload.Project = URL[3] + "/" + URL[4] + "/" + URL[5]
 	payload.Owner = owner
 	payload.Committer = committer
 	payload.Commits = commits
