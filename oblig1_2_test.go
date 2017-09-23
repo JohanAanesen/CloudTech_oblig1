@@ -2,25 +2,70 @@ package main
 
 import (
 	"testing"
-	"net/http"
+	"os"
 )
 
-func TestgetCommitter(t *testing.T){
-	var inp = []string{"https://api.github.com/repos/apache/kafka", "https://api.github.com/repos/google/go-github", "https://github.com/"}
-	var out = []string{"ijuma", "willnorris", ""}
 
-	for i := range inp {
-		json1, err := http.Get(inp[i])
+func TestGetOwner(t *testing.T){
+	var out = []string{"apache"}
+
+	for i := range out {
+		json1, err := os.Open("./test/kafka.json")
 
 		if err != nil{
 			t.Fatalf("Error: ", err)
 			return
 		}
 
-		owner, err := getOwner(json1.Body)
+		owner, err := getOwner(json1)
 
 		if owner != out[i] {
 			t.Fatalf("ERROR expected: %s but got: %s", out[i], owner)
+		}
+	}
+}
+
+
+func TestGetCommitter(t *testing.T){
+	var out = []string{"ijuma"}
+	var out2 = []int{315}
+
+	for i := range out {
+		json1, err := os.Open("./test/contributors.json")
+
+		if err != nil{
+			t.Fatalf("Error: %s", err)
+			return
+		}
+
+		committer, commits, err := getCommitter(json1)
+
+		if committer != out[i] && commits != out2[i] {
+			t.Fatalf("ERROR expected: %s and %v but got: %s and %v", out[i], out2[i], committer, commits)
+		}
+	}
+}
+
+func TestGetLang(t *testing.T){
+	type Data struct {
+		out []string
+	}
+	var data Data
+
+	data.out = []string{"Java"}
+
+	for i := range data.out {
+		json1, err := os.Open("./test/lang.json")
+
+		if err != nil{
+			t.Fatalf("Error: ", err)
+			return
+		}
+
+		lang, err := getLang(json1)
+
+		if lang[i] != data.out[i] {
+			t.Fatalf("ERROR expected: %s but got: %s", data.out[i], lang[i])
 		}
 	}
 }
