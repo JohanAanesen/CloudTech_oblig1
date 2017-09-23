@@ -154,7 +154,6 @@ func HandleOblig(w http.ResponseWriter, r *http.Request){
 }
 
 func main() {
-	//stuff added because Martin said it was needed to work :)
 	port := os.Getenv("PORT")
 	http.HandleFunc("/projectinfo/v1/", HandleOblig)
 	http.ListenAndServe(":"+port, nil)
