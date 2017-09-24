@@ -13,12 +13,12 @@ A-Because i first finished off the assignment using the package go-github (githu
 package main
 
 import (
-	"os"
 	"net/http"
 	"strings"
 	"fmt"
 	"encoding/json"
 	"io"
+	"os"
 )
 
 const GITHUB_URL = "https://api.github.com/repos/"
@@ -113,8 +113,26 @@ func getLang(r io.Reader)([]string, error){
 	return lang, err
 }
 
+func checkNotFound(r io.Reader)(string, error){
+
+	type Data map[string]string
+
+	var data Data
+
+	err := json.NewDecoder(r).Decode(&data)
+	//err handler
+	if err != nil{
+		fmt.Printf("Something went wrong with the JSON decoder: %s\n", err)
+	}
+
+	check := data["message"]
+
+	return check, err
+
+}
+
 func HandleOblig(w http.ResponseWriter, r *http.Request){
-	//content-type because firefox and prettyprint
+	//content-type set to JSON
 	http.Header.Add(w.Header(), "content-type", "application/json")
 
 	//URL parts, 1 is projectinfo, 2 is v1, 3 is github.com and then the 2 variables
@@ -126,10 +144,17 @@ func HandleOblig(w http.ResponseWriter, r *http.Request){
 	json2, err := http.Get(GITHUB_URL + URL[4] + "/" + URL[5] + COMMIT_URL)
 	json3, err := http.Get(GITHUB_URL + URL[4] + "/" + URL[5] + LANG_URL)
 
-	if json1.Body == nil && json2.Body == nil && json3.Body == nil{
+	failsafe, err := checkNotFound(json1.Body)
+
+	if failsafe == "Not Found"{
+		http.Error(w, "Repo not found", http.StatusBadRequest)
+		return
+	}
+
+	if json1.Body == nil{
 		http.Error(w, "Need a JSON body", http.StatusBadRequest)
 		return
-	}	
+	}
 
 	//populating variables
 	owner, err := getOwner(json1.Body)
