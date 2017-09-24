@@ -193,8 +193,8 @@ func HandleOblig(w http.ResponseWriter, r *http.Request){
 }
 
 func main() {
-//	port := os.Getenv("PORT")
+	port := os.Getenv("PORT")
 	http.HandleFunc("/projectinfo/v1/", HandleOblig)
-//	http.ListenAndServe(":"+port, nil)
-	http.ListenAndServe(":8080", nil)
+	http.ListenAndServe(":"+port, nil)
+//	http.ListenAndServe(":8080", nil)
 }
