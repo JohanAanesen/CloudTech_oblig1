@@ -79,7 +79,7 @@ func getOwner(r io.Reader)(string, error){
 
 	//err handler
 	if err != nil{
-		fmt.Printf("Something went wrong with the JSON decoder\n", err)
+		fmt.Printf("Something went wrong with the JSON decoder: %s\n", err)
 		return "error", err
 	}
 
@@ -100,7 +100,7 @@ func getLang(r io.Reader)([]string, error){
 
 	//err handler
 	if err != nil{
-		fmt.Printf("Something went wrong with the JSON decoder\n", err)
+		fmt.Printf("Something went wrong with the JSON decoder: %s\n", err)
 		return nil, err
 	}
 
@@ -133,9 +133,9 @@ func HandleOblig(w http.ResponseWriter, r *http.Request){
 	committer, commits, err := getCommitter(json2.Body)
 	language, err := getLang(json3.Body)
 
-	//error handler, not sure if it is needed here(?) - I'm new to this language
+	//error handler
 	if err != nil{
-		fmt.Printf("Something went wrong\n", err)
+		fmt.Printf("Something went wrong %s\n", err)
 		return
 	}
 
