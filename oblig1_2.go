@@ -126,6 +126,7 @@ func HandleOblig(w http.ResponseWriter, r *http.Request){
 	json2, err := http.Get(GITHUB_URL + URL[4] + "/" + URL[5] + COMMIT_URL)
 	json3, err := http.Get(GITHUB_URL + URL[4] + "/" + URL[5] + LANG_URL)
 
+	//if json1.Body
 	//populating variables
 	owner, err := getOwner(json1.Body)
 	committer, commits, err := getCommitter(json2.Body)
@@ -134,7 +135,7 @@ func HandleOblig(w http.ResponseWriter, r *http.Request){
 	//error handler
 	if err != nil{
 		fmt.Printf("Something went wrong %s\n", err)
-		http.Error(w, err.Error(), http.StatusBadRequest)
+		http.Error(w, http.StatusText(http.StatusBadRequest), http.StatusBadRequest)
 		return
 	}
 
