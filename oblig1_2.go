@@ -138,6 +138,17 @@ func HandleOblig(w http.ResponseWriter, r *http.Request){
 	//URL parts, 1 is projectinfo, 2 is v1, 3 is github.com and then the 2 variables
 	URL := strings.Split(r.URL.Path, "/")
 
+	//error failsafe
+	if URL[3] != "github.com"{
+		http.Error(w, "Need github.com in the url after v1", http.StatusBadRequest)
+		return
+	}
+
+	//more failsafes
+	if URL[4] == ""{
+		http.Error(w, "Incomplete URL", http.StatusBadRequest)
+		return
+		}
 
 	//GET requests, URL[4] and URL [5] is APACHE and KAFKA
 	json1, err := http.Get(GITHUB_URL + URL[4] + "/" + URL[5])

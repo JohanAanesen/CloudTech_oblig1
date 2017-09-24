@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dbd42934-8dd6-4b6e-8d2d-eb1bb649bdb0" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/oblig1_2.go" afterPath="$PROJECT_DIR$/oblig1_2.go" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -27,8 +26,8 @@
       <file leaf-file-name="oblig1_2.go" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/oblig1_2.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-210">
-              <caret line="150" column="14" lean-forward="true" selection-start-line="150" selection-start-column="14" selection-end-line="150" selection-end-column="14" />
+            <state relative-caret-position="474">
+              <caret line="199" column="2" lean-forward="false" selection-start-line="199" selection-start-column="2" selection-end-line="199" selection-end-column="2" />
               <folding>
                 <element signature="e#417#486#0" expanded="true" />
               </folding>
@@ -249,12 +248,12 @@
       <option name="presentableId" value="Default" />
       <updated>1506029731374</updated>
       <workItem from="1506029741478" duration="15904000" />
-      <workItem from="1506201281023" duration="12924000" />
+      <workItem from="1506201281023" duration="13336000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="28828000" />
+    <option name="totallyTimeSpent" value="29240000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="64" y="-11" width="1681" height="993" extended-state="6" />
@@ -391,8 +390,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/oblig1_2.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-210">
-          <caret line="150" column="14" lean-forward="true" selection-start-line="150" selection-start-column="14" selection-end-line="150" selection-end-column="14" />
+        <state relative-caret-position="474">
+          <caret line="199" column="2" lean-forward="false" selection-start-line="199" selection-start-column="2" selection-end-line="199" selection-end-column="2" />
           <folding>
             <element signature="e#417#486#0" expanded="true" />
           </folding>
