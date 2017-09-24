@@ -134,6 +134,7 @@ func HandleOblig(w http.ResponseWriter, r *http.Request){
 	//error handler
 	if err != nil{
 		fmt.Printf("Something went wrong %s\n", err)
+		http.Error(w, err.Error(), http.StatusBadRequest)
 		return
 	}
 
