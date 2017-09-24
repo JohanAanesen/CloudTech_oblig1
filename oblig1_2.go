@@ -126,7 +126,11 @@ func HandleOblig(w http.ResponseWriter, r *http.Request){
 	json2, err := http.Get(GITHUB_URL + URL[4] + "/" + URL[5] + COMMIT_URL)
 	json3, err := http.Get(GITHUB_URL + URL[4] + "/" + URL[5] + LANG_URL)
 
-	//if json1.Body
+	if json1.Body == nil && json2.Body == nil && json3.Body == nil{
+		http.Error(w, "Need a JSON body", http.StatusBadRequest)
+		return
+	}	
+
 	//populating variables
 	owner, err := getOwner(json1.Body)
 	committer, commits, err := getCommitter(json2.Body)
