@@ -51,7 +51,7 @@ func getCommitter(r io.Reader)(string, int, error){
 	//err handler
 	if err != nil{
 		fmt.Printf("Something went wrong with the JSON decoder\n", err)
-		os.Exit(1)
+		//os.Exit(1)
 	}
 
 	//I only need the info from first instance
@@ -80,7 +80,7 @@ func getOwner(r io.Reader)(string, error){
 	//err handler
 	if err != nil{
 		fmt.Printf("Something went wrong with the JSON decoder\n", err)
-		os.Exit(1)
+		//return nil, err
 	}
 
 	//returns data login and no error
@@ -101,7 +101,7 @@ func getLang(r io.Reader)([]string, error){
 	//err handler
 	if err != nil{
 		fmt.Printf("Something went wrong with the JSON decoder\n", err)
-		os.Exit(1)
+		//return nil, err
 	}
 
 	//lang array to hold all the languages
