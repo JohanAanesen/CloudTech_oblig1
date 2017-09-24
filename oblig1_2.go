@@ -145,7 +145,7 @@ func HandleOblig(w http.ResponseWriter, r *http.Request){
 	}
 
 	//more failsafes
-	if URL[4] == ""{
+	if URL[4] == "" || URL[5] == ""{
 		http.Error(w, "Incomplete URL", http.StatusBadRequest)
 		return
 		}

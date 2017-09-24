@@ -26,8 +26,8 @@
       <file leaf-file-name="oblig1_2.go" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/oblig1_2.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="474">
-              <caret line="199" column="2" lean-forward="false" selection-start-line="199" selection-start-column="2" selection-end-line="199" selection-end-column="2" />
+            <state relative-caret-position="366">
+              <caret line="151" column="0" lean-forward="true" selection-start-line="151" selection-start-column="0" selection-end-line="151" selection-end-column="0" />
               <folding>
                 <element signature="e#417#486#0" expanded="true" />
               </folding>
@@ -248,12 +248,12 @@
       <option name="presentableId" value="Default" />
       <updated>1506029731374</updated>
       <workItem from="1506029741478" duration="15904000" />
-      <workItem from="1506201281023" duration="13336000" />
+      <workItem from="1506201281023" duration="13447000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="29240000" />
+    <option name="totallyTimeSpent" value="29351000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="64" y="-11" width="1681" height="993" extended-state="6" />
@@ -390,8 +390,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/oblig1_2.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="474">
-          <caret line="199" column="2" lean-forward="false" selection-start-line="199" selection-start-column="2" selection-end-line="199" selection-end-column="2" />
+        <state relative-caret-position="366">
+          <caret line="151" column="0" lean-forward="true" selection-start-line="151" selection-start-column="0" selection-end-line="151" selection-end-column="0" />
           <folding>
             <element signature="e#417#486#0" expanded="true" />
           </folding>
