@@ -1,1 +1,1 @@
-web: oblig1_2.go
+web: oblig1_2
