@@ -13,7 +13,7 @@ func TestGetOwner(t *testing.T){
 		json1, err := os.Open("./test/kafka.json")
 
 		if err != nil{
-			t.Fatalf("Error: ", err)
+			t.Fatalf("Error: %s", err)
 			return
 		}
 
@@ -58,7 +58,7 @@ func TestGetLang(t *testing.T){
 		json1, err := os.Open("./test/lang.json")
 
 		if err != nil{
-			t.Fatalf("Error: ", err)
+			t.Fatalf("Error: %s", err)
 			return
 		}
 
@@ -77,7 +77,7 @@ func TestCheckNotFound(t *testing.T){
 	json1, err := os.Open("./test/notfound.json")
 
 	if err != nil{
-		t.Fatalf("Error: ", err)
+		t.Fatalf("Error: %s", err)
 		return
 	}
 

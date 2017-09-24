@@ -20,12 +20,14 @@ import (
 	"io"
 	"os"
 )
+//GitHubURL https://api.github.com/repos/
+const GitHubURL = "https://api.github.com/repos/"
+//CommitURL /contributors
+const CommitURL = "/contributors"
+//LangURL /languages
+const LangURL = "/languages"
 
-const GITHUB_URL = "https://api.github.com/repos/"
-const COMMIT_URL = "/contributors"
-const LANG_URL = "/languages"
-
-//payload structure, as in assignment spec
+//Payload structure, as in assignment spec
 type Payload struct {
 	Project string 		`json:"project"`
 	Owner 	string 		`json:"owner"`
@@ -132,6 +134,7 @@ func checkNotFound(r io.Reader)(string, error){
 
 }
 
+//HandleOblig primary function
 func HandleOblig(w http.ResponseWriter, r *http.Request){
 	//content-type set to JSON
 	http.Header.Add(w.Header(), "content-type", "application/json")
@@ -152,9 +155,9 @@ func HandleOblig(w http.ResponseWriter, r *http.Request){
 	}
 
 	//GET requests, URL[4] and URL [5] is APACHE and KAFKA
-	json1, err := http.Get(GITHUB_URL + URL[4] + "/" + URL[5])
-	json2, err := http.Get(GITHUB_URL + URL[4] + "/" + URL[5] + COMMIT_URL)
-	json3, err := http.Get(GITHUB_URL + URL[4] + "/" + URL[5] + LANG_URL)
+	json1, err := http.Get(GitHubURL + URL[4] + "/" + URL[5])
+	json2, err := http.Get(GitHubURL + URL[4] + "/" + URL[5] + CommitURL)
+	json3, err := http.Get(GitHubURL + URL[4] + "/" + URL[5] + LangURL)
 
 	failsafe, err := checkNotFound(json1.Body)
 
