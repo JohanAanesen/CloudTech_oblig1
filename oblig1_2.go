@@ -51,11 +51,10 @@ func getCommitter(r io.Reader)(string, int, error){
 	//err handler
 	if err != nil{
 		fmt.Printf("Something went wrong with the JSON decoder: %s\n", err)
-		return "error", 0, err
 	}
 
 	//I only need the info from first instance
-	return data[0].Login, data[0].Contributions, nil
+	return data[0].Login, data[0].Contributions, err
 }
 
 func getOwner(r io.Reader)(string, error){
@@ -80,11 +79,11 @@ func getOwner(r io.Reader)(string, error){
 	//err handler
 	if err != nil{
 		fmt.Printf("Something went wrong with the JSON decoder: %s\n", err)
-		return "error", err
+
 	}
 
-	//returns data login and no error
-	return data.Owner.Login, nil
+	//returns data login and error (if there is any error that is)
+	return data.Owner.Login, err
 }
 
 func getLang(r io.Reader)([]string, error){
@@ -101,7 +100,6 @@ func getLang(r io.Reader)([]string, error){
 	//err handler
 	if err != nil{
 		fmt.Printf("Something went wrong with the JSON decoder: %s\n", err)
-		return nil, err
 	}
 
 	//lang array to hold all the languages
@@ -112,7 +110,7 @@ func getLang(r io.Reader)([]string, error){
 	}
 
 	//return array with languages
-	return lang, nil
+	return lang, err
 }
 
 func HandleOblig(w http.ResponseWriter, r *http.Request){
