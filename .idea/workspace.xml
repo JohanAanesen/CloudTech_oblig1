@@ -26,8 +26,8 @@
       <file leaf-file-name="oblig1_2.go" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/oblig1_2.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-624">
-              <caret line="53" column="10" lean-forward="false" selection-start-line="53" selection-start-column="10" selection-end-line="53" selection-end-column="10" />
+            <state relative-caret-position="258">
+              <caret line="45" column="19" lean-forward="true" selection-start-line="45" selection-start-column="19" selection-end-line="45" selection-end-column="19" />
               <folding />
             </state>
           </provider>
@@ -246,12 +246,12 @@
       <option name="presentableId" value="Default" />
       <updated>1506029731374</updated>
       <workItem from="1506029741478" duration="15904000" />
-      <workItem from="1506201281023" duration="7924000" />
+      <workItem from="1506201281023" duration="8295000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="23828000" />
+    <option name="totallyTimeSpent" value="24199000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="64" y="-11" width="1681" height="993" extended-state="6" />
@@ -386,8 +386,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/oblig1_2.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-624">
-          <caret line="53" column="10" lean-forward="false" selection-start-line="53" selection-start-column="10" selection-end-line="53" selection-end-column="10" />
+        <state relative-caret-position="258">
+          <caret line="45" column="19" lean-forward="true" selection-start-line="45" selection-start-column="19" selection-end-line="45" selection-end-column="19" />
           <folding />
         </state>
       </provider>
