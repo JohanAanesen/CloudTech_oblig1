@@ -190,7 +190,7 @@ func HandleOblig(w http.ResponseWriter, r *http.Request) {
 	var payload Payload
 
 	//populates the payload object
-	payload.Project = URL[3] + "/" + URL[4] + "/" + URL[5]
+	payload.Project = URL[4]
 	payload.Owner = owner
 	payload.Committer = committer
 	payload.Commits = commits
