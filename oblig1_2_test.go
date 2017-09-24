@@ -1,18 +1,17 @@
 package main
 
 import (
-	"testing"
 	"os"
+	"testing"
 )
 
-
-func TestGetOwner(t *testing.T){
+func TestGetOwner(t *testing.T) {
 	var out = []string{"apache"}
 
 	for i := range out {
 		json1, err := os.Open("./test/kafka.json")
 
-		if err != nil{
+		if err != nil {
 			t.Fatalf("Error: %s", err)
 			return
 		}
@@ -25,15 +24,14 @@ func TestGetOwner(t *testing.T){
 	}
 }
 
-
-func TestGetCommitter(t *testing.T){
+func TestGetCommitter(t *testing.T) {
 	var out = []string{"ijuma"}
 	var out2 = []int{315}
 
 	for i := range out {
 		json1, err := os.Open("./test/contributors.json")
 
-		if err != nil{
+		if err != nil {
 			t.Fatalf("Error: %s", err)
 			return
 		}
@@ -46,7 +44,7 @@ func TestGetCommitter(t *testing.T){
 	}
 }
 
-func TestGetLang(t *testing.T){
+func TestGetLang(t *testing.T) {
 	type Data struct {
 		out []string
 	}
@@ -57,7 +55,7 @@ func TestGetLang(t *testing.T){
 	for i := range data.out {
 		json1, err := os.Open("./test/lang.json")
 
-		if err != nil{
+		if err != nil {
 			t.Fatalf("Error: %s", err)
 			return
 		}
@@ -70,13 +68,13 @@ func TestGetLang(t *testing.T){
 	}
 }
 
-func TestCheckNotFound(t *testing.T){
+func TestCheckNotFound(t *testing.T) {
 
 	data := "Not Found"
 
 	json1, err := os.Open("./test/notfound.json")
 
-	if err != nil{
+	if err != nil {
 		t.Fatalf("Error: %s", err)
 		return
 	}

@@ -8,40 +8,43 @@ A-Because i first finished off the assignment using the package go-github (githu
   but heroku went apeshit when trying to deploy it (after 4 hours of trying to deploy it I gave up).
   And that is why I redid the assignment without using go-github (hooray it deploys!)
 
- */
+*/
 
 package main
 
 import (
-	"net/http"
-	"strings"
-	"fmt"
 	"encoding/json"
+	"fmt"
 	"io"
+	"net/http"
 	"os"
+	"strings"
 )
+
 //GitHubURL https://api.github.com/repos/
 const GitHubURL = "https://api.github.com/repos/"
+
 //CommitURL /contributors
 const CommitURL = "/contributors"
+
 //LangURL /languages
 const LangURL = "/languages"
 
 //Payload structure, as in assignment spec
 type Payload struct {
-	Project string 		`json:"project"`
-	Owner 	string 		`json:"owner"`
-	Committer string	`json:"committer"`
-	Commits int			`json:"commits"`
-	Language []string 	`json:"language"`
+	Project   string   `json:"project"`
+	Owner     string   `json:"owner"`
+	Committer string   `json:"committer"`
+	Commits   int      `json:"commits"`
+	Language  []string `json:"language"`
 }
 
-func getCommitter(r io.Reader)(string, int, error){
+func getCommitter(r io.Reader) (string, int, error) {
 
 	//Data structure, a string and an int
-	type Data struct{
-		Login string		`json:"login"`
-		Contributions int	`json:"contributions"`
+	type Data struct {
+		Login         string `json:"login"`
+		Contributions int    `json:"contributions"`
 	}
 
 	//data object
@@ -51,7 +54,7 @@ func getCommitter(r io.Reader)(string, int, error){
 	err := json.NewDecoder(r).Decode(&data)
 
 	//err handler
-	if err != nil{
+	if err != nil {
 		fmt.Printf("Something went wrong with the JSON decoder: %s\n", err)
 	}
 
@@ -59,16 +62,16 @@ func getCommitter(r io.Reader)(string, int, error){
 	return data[0].Login, data[0].Contributions, err
 }
 
-func getOwner(r io.Reader)(string, error){
+func getOwner(r io.Reader) (string, error) {
 
 	//this is shady, but it works i guess 0:)
 	//json reads an object inside an object, so we need to decode it into object inside an object
 	//yes that's right I'm tired and it's 3AM.
-	type own1 struct{
-		Login string	`json:"login"`
+	type own1 struct {
+		Login string `json:"login"`
 	}
 
-	type Data struct{
+	type Data struct {
 		Owner own1
 	}
 
@@ -79,7 +82,7 @@ func getOwner(r io.Reader)(string, error){
 	err := json.NewDecoder(r).Decode(&data)
 
 	//err handler
-	if err != nil{
+	if err != nil {
 		fmt.Printf("Something went wrong with the JSON decoder: %s\n", err)
 
 	}
@@ -88,7 +91,7 @@ func getOwner(r io.Reader)(string, error){
 	return data.Owner.Login, err
 }
 
-func getLang(r io.Reader)([]string, error){
+func getLang(r io.Reader) ([]string, error) {
 
 	//I'm using map because it lets me assign a object without knowing the variables, different from getCommitter()
 	type Data map[string]interface{}
@@ -100,14 +103,14 @@ func getLang(r io.Reader)([]string, error){
 	err := json.NewDecoder(r).Decode(&data)
 
 	//err handler
-	if err != nil{
+	if err != nil {
 		fmt.Printf("Something went wrong with the JSON decoder: %s\n", err)
 	}
 
 	//lang array to hold all the languages
 	var lang []string
 	//loops through and adds the languages
-	for r:= range data {
+	for r := range data {
 		lang = append(lang, r)
 	}
 
@@ -115,7 +118,7 @@ func getLang(r io.Reader)([]string, error){
 	return lang, err
 }
 
-func checkNotFound(r io.Reader)(string, error){
+func checkNotFound(r io.Reader) (string, error) {
 	//map
 	type Data map[string]string
 	//data object
@@ -123,7 +126,7 @@ func checkNotFound(r io.Reader)(string, error){
 	//json decoder
 	err := json.NewDecoder(r).Decode(&data)
 	//err handler
-	if err != nil{
+	if err != nil {
 		fmt.Printf("Something went wrong with the JSON decoder: %s\n", err)
 	}
 
@@ -135,7 +138,7 @@ func checkNotFound(r io.Reader)(string, error){
 }
 
 //HandleOblig primary function
-func HandleOblig(w http.ResponseWriter, r *http.Request){
+func HandleOblig(w http.ResponseWriter, r *http.Request) {
 	//content-type set to JSON
 	http.Header.Add(w.Header(), "content-type", "application/json")
 
@@ -143,7 +146,7 @@ func HandleOblig(w http.ResponseWriter, r *http.Request){
 	URL := strings.Split(r.URL.Path, "/")
 
 	//error failsafe
-	if URL[3] != "github.com"{
+	if URL[3] != "github.com" {
 		http.Error(w, "Need github.com in the url after v1", http.StatusBadRequest)
 		return
 	}
@@ -161,12 +164,12 @@ func HandleOblig(w http.ResponseWriter, r *http.Request){
 
 	failsafe, err := checkNotFound(json1.Body)
 
-	if failsafe == "Not Found"{
+	if failsafe == "Not Found" {
 		http.Error(w, "Repo not found", http.StatusBadRequest)
 		return
 	}
 
-	if json1.Body == nil{
+	if json1.Body == nil {
 		http.Error(w, "Need a JSON body", http.StatusBadRequest)
 		return
 	}
@@ -177,7 +180,7 @@ func HandleOblig(w http.ResponseWriter, r *http.Request){
 	language, err := getLang(json3.Body)
 
 	//error handler
-	if err != nil{
+	if err != nil {
 		fmt.Printf("Something went wrong %s\n", err)
 		http.Error(w, http.StatusText(http.StatusBadRequest), http.StatusBadRequest)
 		return
@@ -201,5 +204,5 @@ func main() {
 	port := os.Getenv("PORT")
 	http.HandleFunc("/projectinfo/v1/", HandleOblig)
 	http.ListenAndServe(":"+port, nil)
-//	http.ListenAndServe(":8080", nil)
+	//	http.ListenAndServe(":8080", nil)
 }
