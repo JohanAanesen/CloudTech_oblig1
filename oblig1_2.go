@@ -114,19 +114,20 @@ func getLang(r io.Reader)([]string, error){
 }
 
 func checkNotFound(r io.Reader)(string, error){
-
+	//map
 	type Data map[string]string
-
+	//data object
 	var data Data
-
+	//json decoder
 	err := json.NewDecoder(r).Decode(&data)
 	//err handler
 	if err != nil{
 		fmt.Printf("Something went wrong with the JSON decoder: %s\n", err)
 	}
 
+	//sent just the message part of the map
 	check := data["message"]
-
+	//return string and error
 	return check, err
 
 }

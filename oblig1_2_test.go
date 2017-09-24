@@ -69,3 +69,21 @@ func TestGetLang(t *testing.T){
 		}
 	}
 }
+
+func TestCheckNotFound(t *testing.T){
+
+	data := "Not Found"
+
+	json1, err := os.Open("./test/notfound.json")
+
+	if err != nil{
+		t.Fatalf("Error: ", err)
+		return
+	}
+
+	notfound, err := checkNotFound(json1)
+
+	if notfound != data {
+		t.Fatalf("ERROR expected: %s but got: %s", data, notfound)
+	}
+}

@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dbd42934-8dd6-4b6e-8d2d-eb1bb649bdb0" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/workspace.xml___jb_tmp___" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cp.out" afterPath="$PROJECT_DIR$/cp.out" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/oblig1_2.go" afterPath="$PROJECT_DIR$/oblig1_2.go" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/oblig1_2_test.go" afterPath="$PROJECT_DIR$/oblig1_2_test.go" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -25,21 +25,23 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="oblig1_2.go" pinned="false" current-in-tab="true">
+      <file leaf-file-name="oblig1_2.go" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/oblig1_2.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="20" column="7" lean-forward="false" selection-start-line="20" selection-start-column="7" selection-end-line="20" selection-end-column="7" />
-              <folding />
+            <state relative-caret-position="306">
+              <caret line="128" column="28" lean-forward="true" selection-start-line="128" selection-start-column="28" selection-end-line="128" selection-end-column="28" />
+              <folding>
+                <element signature="e#417#486#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="oblig1_2_test.go" pinned="false" current-in-tab="false">
+      <file leaf-file-name="oblig1_2_test.go" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/oblig1_2_test.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+            <state relative-caret-position="342">
+              <caret line="19" column="37" lean-forward="false" selection-start-line="19" selection-start-column="37" selection-end-line="19" selection-end-column="37" />
               <folding>
                 <element signature="e#14#41#0" expanded="true" />
               </folding>
@@ -71,9 +73,9 @@
       <list>
         <option value="$PROJECT_DIR$/oblig1.go" />
         <option value="$PROJECT_DIR$/test/lang.json" />
-        <option value="$PROJECT_DIR$/oblig1_2_test.go" />
         <option value="$PROJECT_DIR$/Procfile" />
         <option value="$PROJECT_DIR$/oblig1_2.go" />
+        <option value="$PROJECT_DIR$/oblig1_2_test.go" />
       </list>
     </option>
   </component>
@@ -249,12 +251,12 @@
       <updated>1506029731374</updated>
       <workItem from="1506029741478" duration="15904000" />
       <workItem from="1506201281023" duration="14642000" />
-      <workItem from="1506282819900" duration="81000" />
+      <workItem from="1506282819900" duration="1346000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="30627000" />
+    <option name="totallyTimeSpent" value="31892000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="64" y="-11" width="1681" height="993" extended-state="6" />
@@ -323,7 +325,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2898">
           <caret line="161" column="5" lean-forward="true" selection-start-line="161" selection-start-column="5" selection-end-line="161" selection-end-column="5" />
-          <folding />
+          <folding>
+            <element signature="e#417#486#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -339,7 +343,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2286">
           <caret line="127" column="62" lean-forward="true" selection-start-line="127" selection-start-column="4" selection-end-line="127" selection-end-column="62" />
-          <folding />
+          <folding>
+            <element signature="e#417#486#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -398,21 +404,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/oblig1_2_test.go">
+    <entry file="file://$PROJECT_DIR$/oblig1_2.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+        <state relative-caret-position="306">
+          <caret line="128" column="28" lean-forward="true" selection-start-line="128" selection-start-column="28" selection-end-line="128" selection-end-column="28" />
           <folding>
-            <element signature="e#14#41#0" expanded="true" />
+            <element signature="e#417#486#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/oblig1_2.go">
+    <entry file="file://$PROJECT_DIR$/oblig1_2_test.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="20" column="7" lean-forward="false" selection-start-line="20" selection-start-column="7" selection-end-line="20" selection-end-column="7" />
-          <folding />
+        <state relative-caret-position="342">
+          <caret line="19" column="37" lean-forward="false" selection-start-line="19" selection-start-column="37" selection-end-line="19" selection-end-column="37" />
+          <folding>
+            <element signature="e#14#41#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
