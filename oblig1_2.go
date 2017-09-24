@@ -17,8 +17,8 @@ import (
 	"fmt"
 	"io"
 	"net/http"
-	"os"
 	"strings"
+	"os"
 )
 
 //GitHubURL https://api.github.com/repos/
@@ -67,6 +67,7 @@ func getOwner(r io.Reader) (string, error) {
 	//this is shady, but it works i guess 0:)
 	//json reads an object inside an object, so we need to decode it into object inside an object
 	//yes that's right I'm tired and it's 3AM.
+
 	type own1 struct {
 		Login string `json:"login"`
 	}
@@ -83,7 +84,7 @@ func getOwner(r io.Reader) (string, error) {
 
 	//err handler
 	if err != nil {
-		fmt.Printf("Something went wrong with the JSON decoder: %s\n", err)
+		fmt.Printf("Something went wrong with the JSON getOwner decoder: %s\n", err)
 
 	}
 
@@ -118,16 +119,16 @@ func getLang(r io.Reader) ([]string, error) {
 	return lang, err
 }
 
-func checkNotFound(r io.Reader) (string, error) {
+func checkNotFound(r io.Reader) (interface{}, error) {
 	//map
-	type Data map[string]string
+	type Data map[string]interface{}
 	//data object
 	var data Data
 	//json decoder
 	err := json.NewDecoder(r).Decode(&data)
 	//err handler
 	if err != nil {
-		fmt.Printf("Something went wrong with the JSON decoder: %s\n", err)
+		fmt.Printf("Something went wrong with the JSON decoder, repo not found: %s\n", err)
 	}
 
 	//sent just the message part of the map
@@ -159,10 +160,11 @@ func HandleOblig(w http.ResponseWriter, r *http.Request) {
 
 	//GET requests, URL[4] and URL [5] is APACHE and KAFKA
 	json1, err := http.Get(GitHubURL + URL[4] + "/" + URL[5])
+	json1copy, err := http.Get(GitHubURL + URL[4] + "/" + URL[5])
 	json2, err := http.Get(GitHubURL + URL[4] + "/" + URL[5] + CommitURL)
 	json3, err := http.Get(GitHubURL + URL[4] + "/" + URL[5] + LangURL)
 
-	failsafe, err := checkNotFound(json1.Body)
+	failsafe, err := checkNotFound(json1copy.Body)
 
 	if failsafe == "Not Found" {
 		http.Error(w, "Repo not found", http.StatusBadRequest)
@@ -190,7 +192,7 @@ func HandleOblig(w http.ResponseWriter, r *http.Request) {
 	var payload Payload
 
 	//populates the payload object
-	payload.Project = URL[4]
+	payload.Project = URL[5]
 	payload.Owner = owner
 	payload.Committer = committer
 	payload.Commits = commits
@@ -204,5 +206,5 @@ func main() {
 	port := os.Getenv("PORT")
 	http.HandleFunc("/projectinfo/v1/", HandleOblig)
 	http.ListenAndServe(":"+port, nil)
-	//	http.ListenAndServe(":8080", nil)
+//	http.ListenAndServe(":8080", nil)
 }
