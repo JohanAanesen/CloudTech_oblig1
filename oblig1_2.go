@@ -50,7 +50,7 @@ func getCommitter(r io.Reader)(string, int, error){
 
 	//err handler
 	if err != nil{
-		fmt.Printf("Something went wrong with the JSON decoder\n", err)
+		fmt.Printf("Something went wrong with the JSON decoder: %s\n", err)
 		return "error", 0, err
 	}
 
