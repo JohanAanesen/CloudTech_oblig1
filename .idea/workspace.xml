@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dbd42934-8dd6-4b6e-8d2d-eb1bb649bdb0" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/workspace.xml___jb_tmp___" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/oblig1_2.go" afterPath="$PROJECT_DIR$/oblig1_2.go" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -26,11 +28,9 @@
       <file leaf-file-name="oblig1_2.go" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/oblig1_2.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="701">
-              <caret line="198" column="2" lean-forward="false" selection-start-line="198" selection-start-column="2" selection-end-line="198" selection-end-column="2" />
-              <folding>
-                <element signature="e#417#480#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="360">
+              <caret line="20" column="7" lean-forward="false" selection-start-line="20" selection-start-column="7" selection-end-line="20" selection-end-column="7" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -249,12 +249,12 @@
       <updated>1506029731374</updated>
       <workItem from="1506029741478" duration="15904000" />
       <workItem from="1506201281023" duration="14642000" />
-      <workItem from="1506282819900" duration="30000" />
+      <workItem from="1506282819900" duration="81000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="30576000" />
+    <option name="totallyTimeSpent" value="30627000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="64" y="-11" width="1681" height="993" extended-state="6" />
@@ -323,9 +323,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2898">
           <caret line="161" column="5" lean-forward="true" selection-start-line="161" selection-start-column="5" selection-end-line="161" selection-end-column="5" />
-          <folding>
-            <element signature="e#417#480#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -341,9 +339,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2286">
           <caret line="127" column="62" lean-forward="true" selection-start-line="127" selection-start-column="4" selection-end-line="127" selection-end-column="62" />
-          <folding>
-            <element signature="e#417#480#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -414,11 +410,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/oblig1_2.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="701">
-          <caret line="198" column="2" lean-forward="false" selection-start-line="198" selection-start-column="2" selection-end-line="198" selection-end-column="2" />
-          <folding>
-            <element signature="e#417#480#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="360">
+          <caret line="20" column="7" lean-forward="false" selection-start-line="20" selection-start-column="7" selection-end-line="20" selection-end-column="7" />
+          <folding />
         </state>
       </provider>
     </entry>
